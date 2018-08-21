@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <!-- Title -->
+    {% block title %}{% endblock %}
+
+    <!-- load static file -->
+    {% load staticfiles %}
+    <!-- Import CSS file -->
+    <link href="{% static "css/style.css" %}" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+
+    <!-- Content -->
+    {% block content %}{% endblock %}
+
+</body>
+</html>
