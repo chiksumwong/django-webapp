@@ -24,4 +24,8 @@ urlpatterns = [
     url(r'^$', views.index),
     url(r'^index$', views.index),
 
+    url(r'^posts$', views.posts),
+
+    url(r'^shopCart$', views.shopCart),
+
 ]

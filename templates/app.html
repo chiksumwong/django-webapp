@@ -32,40 +32,46 @@
 
     <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-faded">
-                <div class="navbar-right-col">
-                    <ul class="list-inline">
+
+            <!-- Shop Cart & Searching Box -->
+            <div class="navbar-right-col">
+                <ul class="list-inline">
     
-                        <li class="list-inline-item">
-                            <a href="shop-cart.html"><i class="fa fa-shopping-basket"></i> <span class="badge badge-primary">2</span></a>
-                        </li>
+                <li class="list-inline-item">
+                    <a href="/shopCart"><i class="fa fa-shopping-basket"></i> <span class="badge badge-primary">2</span></a>
+                </li>
                         
-                        <li class="list-inline-item dropdown dropdown-search">
-                            <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-search"></i></a>
-                            <div class="dropdown-menu search-dropdown-menu dropdown-menu-left">
-                                <form role="form">
-                                    <input type="text" class="form-control" placeholder="Search...">
-                                    <button type="submit" class="btn-nav-search"><i class="fa fa-search"></i></button>
-                                </form>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                <li class="list-inline-item dropdown dropdown-search">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-search"></i></a>
+                    <div class="dropdown-menu search-dropdown-menu dropdown-menu-left">
+                        <form role="form">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <button type="submit" class="btn-nav-search"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                </li>
 
+                </ul>
+            </div>
 
-                <a class="navbar-brand" href="index.html"><img src="{% static "images/www_logo.png" %}" alt="" height="42" width="42"></a>
+                <!-- Icon -->
+                <a class="navbar-brand" href="/"><img src="{% static "images/www_logo.png" %}" alt="" height="42" width="42"></a>
+                
+                <!-- Right Button -->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
+                <!-- Columns -->
                 <div class="collapse navbar-collapse" id="navbarCollapse">
 
                     <ul class="navbar-nav  ml-auto">
+                        <li class="nav-item">
+                            <a href="/" class="nav-link">HOME</a>
+                        </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Home </a>
-                            <div class="dropdown-menu dropdown-menu-left">
-                                <a href="index.html" class="dropdown-item">Business & Corporate</a>
-                                <a href="index-text-rotate.html" class="dropdown-item">Text rotate hero</a>
-                            </div>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">POSTS</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -117,11 +123,7 @@
                             </ul>
                             
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Portfolio</a>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                            </ul>
-                        </li>
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Blog</a>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
@@ -178,16 +180,13 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Contact</a>
-                            <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu">
-                                <li><a href="contact-default.html" class="dropdown-item">Contact Default</a></li>
-                                <li><a href="contact-advanced.html" class="dropdown-item">Contact Advanced</a></li>
-                            </ul>
+                        <li class="nav-item">
+                                <a href="contact.html" class="nav-link">Contact</a>
                         </li>
-                        <li class="nav-item"><a target="_blank" href="https://wrapbootstrap.com/theme/versa-minimal-startups-bootstrap4-WB0M13NT7/?ref=wb_rakesh" class=" btn btn-primary btn-lg">Buy Now</a></li>
+                        <li class="nav-item"><a target="_blank" href="https://wrapbootstrap.com/theme/versa-minimal-startups-bootstrap4-WB0M13NT7/?ref=wb_rakesh" class=" btn btn-primary btn-lg">LOGIN</a></li>
                     </ul>
                 </div>
+                
             </nav><!--/footer-->
 
 
