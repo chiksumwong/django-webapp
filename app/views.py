@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-# Create your views here.
+from datetime import datetime
+
+def index(request):  #Home
+    now = datetime.now()
+    return render(request, "index.html" ,locals())

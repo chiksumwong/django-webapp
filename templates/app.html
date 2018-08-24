@@ -1,14 +1,30 @@
+<!-- load static file -->
+{% load staticfiles %}
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
     {% block title %}{% endblock %}
 
-    <!-- load static file -->
-    {% load staticfiles %}
-    <!-- Import CSS file -->
+    <!-- Bootstrap -->
+    <link href="{% static "css/plugins/plugins.css" %}" rel="stylesheet">
+    <link href="{% static "plugins/masterslider/style/masterslider.css" %}" rel="stylesheet">
+
+    <!--dz parallaxer-->
+    <link href="{% static "plugins/dzsparallaxer/dzsparallaxer.css" %}" rel="stylesheet">
+    <link href="{% static "plugins/dzsparallaxer/scroller.css" %}" rel="stylesheet">
+    <link href="{% static "plugins/dzsparallaxer/advancedscroller/plugin.css" %}" rel="stylesheet">
+    
+    <!-- load css for cubeportfolio -->
+    <link rel="stylesheet" type="text/css" href="{% static "plugins/cubeportfolio/css/cubeportfolio.min.css" %}">
+
+    <!-- Import main CSS file -->
     <link href="{% static "css/style.css" %}" rel="stylesheet" type="text/css" />
 
 </head>
@@ -16,6 +32,77 @@
 
     <!-- Content -->
     {% block content %}{% endblock %}
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-3">
+                    <h4>Versa</h4>
+                    <p>
+                        If you use this site regularly and would like to help keep the site on the Internet, please consider donating a small sum to help pay for the hosting and bandwidth bill. 
+                    </p>
+                    <a href="#" class="btn btn-underline">Hire Us</a>
+                </div><!--/.column-->
+                <div class="col-md-6 col-lg-3">
+                    <h4>Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="btn btn-underline">Changelog</a></li>
+                        <li><a href="#" class="btn btn-underline">Updates</a></li>
+                        <li><a href="#" class="btn btn-underline">News</a></li>
+                        <li><a href="#" class="btn btn-underline">Contact us</a></li>
+                        <li><a href="#" class="btn btn-underline">Bootstrap4 Beta</a></li>
+                    </ul>
+
+                </div><!--/.column-->
+                <div class="col-md-6 col-lg-3">
+                    <h4>About us</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="btn btn-underline">Features</a></li>
+                        <li><a href="#" class="btn btn-underline">Documentation</a></li>
+                        <li><a href="#" class="btn btn-underline">Blog</a></li>
+                        <li><a href="#" class="btn btn-underline">Terms & conditions</a></li>
+                        <li><a href="#" class="btn btn-underline">Privacy & policy</a></li>
+                    </ul>
+                </div><!--/.column-->
+                <div class="col-md-6 col-lg-3">
+                    <h4>Newsletter</h4>
+                    <div class="mb30">
+                        <form>
+                            <div class="form-group">
+                                <label for="subscribe">Subscribe today and get Latest Updates</label>
+                                <input type="email" class="form-control" placeholder="Mail id" id="subscribe">
+                                <button type="submit" class="btn-newsletter"><i class="fa fa-paper-plane-o"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                    <ul class="social list-inline mb30">
+                        <li class="list-inline-item"><a class="facebook" href="#"><i class="fa fa-facebook-f"></i></a></li>
+                        <li class="list-inline-item"><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a class="gplus" href="#"><i class="fa fa-google-plus"></i></a></li>
+                    </ul>
+                    <span class="font400">&copy; Copyright 2020. Versa2.0</span>
+                </div><!--/.column-->
+            </div><!--/.row-->
+        </div><!--/.container-->
+    </footer><!--/.footer--> 
+
+
+    <!-- Scripts -->
+    <script src="{% static "js/bundle/bundle.js" %}" type="text/javascript"></script>
+    <script src="{% static "js/versa.custom.js" %}"></script>
+    <!-- Master Slider -->
+    <script src="{% static "plugins/masterslider/masterslider.min.js" %}"></script>
+    <!--dz parallaxer-->
+    <script type="text/javascript" src="{% static "plugins/dzsparallaxer/dzsparallaxer.js" %}"></script>
+    <script type="text/javascript" src="{% static "plugins/dzsparallaxer/scroller.js" %}"></script>
+    <script type="text/javascript" src="{% static "plugins/dzsparallaxer/advancedscroller/plugin.js" %}"></script>
+    <script src="{% static "js/master-slider-home.js" %}"></script>
+    <!-- load cubeportfolio -->
+    <script type="text/javascript" src="{% static "plugins/cubeportfolio/js/jquery.cubeportfolio.min.js" %}"></script>
+    <!-- init cubeportfolio -->
+    <script type="text/javascript" src="{% static "js/cube-portfolio-home.js" %}"></script>
+
 
 </body>
 </html>
