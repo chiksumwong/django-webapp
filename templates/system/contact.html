@@ -1,0 +1,83 @@
+{% extends 'app.html' %}
+{% load staticfiles %}
+
+{% block title %} <title>WEB APP</title> {% endblock %}
+
+{% block content %}
+        <div class="container pt90 pb50">
+            <div class="row">
+
+                <div class="col-md-6 mb40">
+                    <h4 class="text-capitalize h6 font600">Address</h4>
+                    <p>
+                        124, Munna Wali Dhani, Lalchandpura, <br> Jhotwara, Jaipur, 302012
+                    </p>
+                    <br>
+                    <h4 class="text-capitalize h6 font600">Business hours</h4>
+                    <p>
+                        Monday-Friday: 8am to 6pm<br>
+                        Saturday: 10am to 2pm<br>
+                        Sunday: Closed</p>
+                    <br>
+                    <h4 class="text-capitalize h6 font600">Email</h4>
+                    <p>
+                        <a href="#" class="btn btn-underline">support@assan.com</a></p>
+                    <br>
+                    <h4 class="text-capitalize h6 font600">Phone</h4>
+                    <p>
+                        <a href="#" class="btn btn-underline">+120 234-449-3949</a>
+                    </p>
+                </div>
+
+
+    <div class="col-md-6">
+        <div class="smart-wrap">
+            <div class="smart-forms smart-container">
+            
+                
+                <form method="post" action="" id="smart-form">
+                    <div class="form-body">
+                    
+                        <div class="section">
+                            <label class="field prepend-icon">
+                                <input type="text" name="sendername" id="sendername" class="gui-input" placeholder="Enter name">
+                                <span class="field-icon"><i class="fa fa-user"></i></span>  
+                            </label>
+                        </div><!-- end section -->
+                        
+                        <div class="section">
+                            <label class="field prepend-icon">
+                                <input type="email" name="emailaddress" id="emailaddress" class="gui-input" placeholder="Email address">
+                                <span class="field-icon"><i class="fa fa-envelope"></i></span>
+                            </label>
+                        </div><!-- end section -->
+                        
+                        <div class="section">
+                            <label class="field prepend-icon">
+                                <input type="text" name="sendersubject" id="sendersubject" class="gui-input" placeholder="Enter subjec">
+                                <span class="field-icon"><i class="fa fa-lightbulb-o"></i></span>
+                            </label>
+                        </div><!-- end section -->
+                        
+                        <div class="section">
+                            <label class="field prepend-icon">
+                                <textarea class="gui-textarea" id="sendermessage" name="sendermessage" placeholder="Enter message"></textarea>
+                                <span class="field-icon"><i class="fa fa-comments"></i></span>
+                                <span class="input-hint"> <strong>Hint:</strong> Please enter between 80 - 300 characters.</span>   
+                            </label>
+                        </div><!-- end section -->
+                        
+                        
+                                                                                                                    
+                    </div><!-- end .form-body section -->
+                    <div class="form-footer">
+                        <button type="submit" data-btntext-sending="Sending..." class="button btn btn-primary">Submit</button>
+                        <button type="reset" class="button btn"> Reset </button>
+                    </div><!-- end .form-footer section -->
+                </form>
+            </div><!-- end .smart-forms section -->
+        </div><!-- end .smart-wrap section -->
+    </div>
+            </div>
+        </div>
+{% endblock %}

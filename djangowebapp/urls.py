@@ -16,16 +16,24 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import url
 
-from app import views
+from app import views as app_view
+from news import views as news_view
+from shop import views as shop_view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^contact', app_view.contact),
+    url(r'^comingSoon', app_view.comingSoon),
+    
 
-    url(r'^$', views.index),
-    url(r'^index$', views.index),
+    url(r'^$', news_view.news),
+    url(r'^index$', news_view.news),
 
-    url(r'^posts$', views.posts),
+    url(r'^news$', news_view.news),
 
-    url(r'^shopCart$', views.shopCart),
+
+    url(r'^products$', shop_view.products),
+    url(r'^detail$', shop_view.detail),
+    url(r'^shopCart$', shop_view.shopCart),
 
 ]

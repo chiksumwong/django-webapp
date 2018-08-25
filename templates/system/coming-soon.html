@@ -1,0 +1,32 @@
+{% extends 'app.html' %}
+{% load staticfiles %}
+
+{% block title %} <title>WEB APP</title> {% endblock %}
+
+{% block content %}
+<section class="dzsparallaxer auto-init dzsparallaxer---window-height use-loading" style="position: relative; height: 800px;" data-options='{  mode_scroll: "normal" }'>
+    <div class="divimage dzsparallaxer--target " data-src="{% static "images/comingSoon.jpg" %}" style="width: 100%; height: 130%; background-image: url()">
+        <div class="content-table">
+            <div class="content-middle pt80 ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-lg-8 ml-auto mr-auto text-center">
+                            <h2 class='coming-soon-text'>launching soon</h2>
+                            <p class="lead text-white mb20 text-muted">
+                                A great looking minimal style template that built with modern tools and works into all browsers and devices
+                            </p>
+                            <div class="circle-button">
+                                <a href="#" class="btn btn-light btn-xl btn-rounded">
+                                    Notify Me
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--hero inner-->
+
+        </div><!--parallax hero-->
+    </div><!--parallax image div-->
+    <div class="mouse-down"><a data-scroll href="#about"><i class="fa fa-angle-down fa-3x text-white"></i></a></div>
+</section>
+{% endblock %}

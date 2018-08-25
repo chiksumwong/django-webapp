@@ -1,4 +1,5 @@
 {% extends 'app.html' %}
+{% load staticfiles %}
 
 {% block title %} <title>WEB APP</title> {% endblock %}
 
@@ -8,10 +9,12 @@
         <div id="P_masterslider" class="master-slider-parent fs-slider ms-parent-id-39" >
             <!-- MasterSlider Main -->
             <div id="masterslider" class="master-slider ms-skin-default" >
+
+                <!-- First Slide -->
                 <div class="ms-overlay-layers">
                     <img class="ms-layer msp-cn-121-23"
-                         src="plugins/masterslider/images/blank.gif"
-                         data-src="plugins/masterslider/images/mouse-scroll-b-icon.png"
+                         src="{% static "plugins/masterslider/images/blank.gif" %}"
+                         data-src="{% static "plugins/masterslider/images/mouse-scroll-b-icon.png" %}"
                          alt=""
                          style=""
                          data-duration="512"
@@ -23,8 +26,8 @@
                          data-origin="bc"
                          data-position="normal" />
                     <img class="ms-layer ms-wheel-icon msp-cn-121-17"
-                         src="plugins/masterslider/images/blank.gif"
-                         data-src="plugins/masterslider/images/mouse-scroll-w-icon.png"
+                         src="{% static "plugins/masterslider/images/blank.gif" %}"
+                         data-src="{% static "plugins/masterslider/images/mouse-scroll-w-icon.png" %}"
                          alt=""
                          style=""
                          data-duration="512"
@@ -36,6 +39,7 @@
                          data-origin="bc"
                          data-position="normal" />
                 </div>
+                
                 <div class="ms-slide fullwidth-layers" data-delay="7.5" data-fill-mode="fill" >
                     <img src="plugins/masterslider/images/blank.gif" alt="" title="" data-src="plugins/masterslider/images/mscrtvi-background-slide-4.jpg" />
                     <img class="ms-layer msp-cn-121-3"
@@ -240,6 +244,7 @@
                          data-origin="br"
                          data-position="normal" >is everything, It is the preview of life's coming attractions.</div>
                 </div>
+
             </div>
             <!-- END MasterSlider Main -->
         </div>
