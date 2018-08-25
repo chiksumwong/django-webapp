@@ -1,0 +1,14 @@
+{% extends 'app.html' %}
+{% load staticfiles %}
+
+{% block title %} <title>WEB APP</title> {% endblock %}
+
+{% block content %}
+    <div class="container pt70 pb60">
+        <h4 class="mb20">{{title}}</h4>
+        <h5>【{{category}}】 &nbsp;&nbsp;{{pubtime}}&nbsp;&nbsp;{{nickname}}</h5>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;{{message}}
+        </p>
+    </div>
+{% endblock %}

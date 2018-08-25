@@ -6,10 +6,12 @@ page1 = 1
 
 def news(request, pageindex=None):  #首頁
 	global page1
-	pagesize = 8
+	pagesize = 10
+
 	newsall = news_model.NewsUnit.objects.all().order_by('-id')
 	datasize = len(newsall)
 	totpage = math.ceil(datasize / pagesize)
+
 	if pageindex==None:
 		page1 = 1
 		newsunits = news_model.NewsUnit.objects.filter(enabled=True).order_by('-id')[:pagesize]
@@ -26,7 +28,8 @@ def news(request, pageindex=None):  #首頁
 	elif pageindex=='3':
 		start = (page1-1)*pagesize
 		newsunits = news_model.NewsUnit.objects.filter(enabled=True).order_by('-id')[start:(start+pagesize)]
-	currentpage = page1
+		currentpage = page1
+
 	return render(request, "news/news.html", locals())
 
 def detail(request, detailid=None):  #詳細頁面
@@ -38,4 +41,4 @@ def detail(request, detailid=None):  #詳細頁面
 	message = unit.message
 	unit.press += 1
 	unit.save()
-	return render(request, "detail.html", locals())
+	return render(request, "news/detail.html", locals())

@@ -3,20 +3,6 @@
 {% block title %} <title>WEB APP</title> {% endblock %}
 
 {% block content %}
-<div class="dzsparallaxer auto-init height-is-based-on-content "  data-options='{   direction: "reverse"}'>
-        <div class="divimage dzsparallaxer--target " style="width: 101%; height: 130%; background-image: url(images/bg-6.jpg)">
-        </div>
-
-        <div class="container pt100">
-            <div class="row">
-                <div class="col-md-8 ml-auto mr-auto wow bounceIn" data-wow-delay=".2s">
-                    <h3 class="h3 mb30 text-center pt100 pb100 font300 text-white">Login to your account</h3>
-                </div>
-            </div>
-        </div>
-       
-    </div><!--parallax-->
-    <!--/.page-title-->
       <div class='container pb50  pt50-md'>
             <div class='row'>
                 <div class='col-md-6 col-lg-5 mr-auto ml-auto'>
@@ -28,13 +14,13 @@
                                 {% csrf_token %}
                                 <div class='form-group'>
                                     <label for='username'>Username</label>
-                                    <input id='username' type='text' class='form-control' placeholder='John Doe'>
+                                    <input id='username' type='text' class='form-control' placeholder='John Doe' required>
                                 </div>
                                 <div class='form-group'>
                                     <label for='password'>Password</label>
-                                    <input id='password' type='password' class='form-control' placeholder='......'>
+                                    <input id='password' type='password' class='form-control' placeholder='......' required>
                                 </div>
-                                <button type='submit' class='btn btn-block btn-secondary btn-rounded'>Sign In</button>
+                                <input type='submit' class='btn btn-block btn-secondary btn-rounded' value="SUBMIT" />
                             </form>
                             
 
