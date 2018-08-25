@@ -24,11 +24,14 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^contact', app_view.contact),
     url(r'^comingSoon', app_view.comingSoon),
-    
+
+    url(r'^register', app_view.register),
+    url(r'^login', app_view.login),
+	url(r'^adminmain/$', app_view.adminmain),
+	url(r'^adminmain/(\d+)/$', app_view.adminmain),
 
     url(r'^$', news_view.news),
     url(r'^index$', news_view.news),
-
     url(r'^news$', news_view.news),
 
 

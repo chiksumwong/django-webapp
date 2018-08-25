@@ -1,5 +1,4 @@
 {% extends 'app.html' %}
-{% load staticfiles %}
 
 {% block title %} <title>WEB APP</title> {% endblock %}
 
@@ -26,7 +25,7 @@
                         <th align="left">分類</th>
                         <th align="left">標題</th>
                         <th align="left">時間</th>
-                        <th align="left">點閱</th>
+                        <th align="left">編輯</th>
                 </tr>
             </thead>
             <tfoot>
@@ -34,35 +33,28 @@
                         <th align="left">分類</th>
                         <th align="left">標題</th>
                         <th align="left">時間</th>
-                        <th align="left">點閱</th>
+                        <th align="left">編輯</th>
                 </tr>
             </tfoot>
             <tbody>
-                    {% for unit in newsunits %}
-                    <tr class="alt">
-                    <td><div class="typeblock">【{{ unit.catego }}】</div></td>
-                    <td><a href="/detail/{{unit.id}}/">{{ unit.title }}</a></td>
+
+                {% for unit in newsunits %}
+                    <tr>
+                    <td><div>【{{ unit.catego }}】</div></td>
+                    <td><a href="/newsedit/{{unit.id}}/">{{ unit.title }}</a></td>
                     <td>{{ unit.pubtime }}</td>
-                    <td>{{ unit.press }}</td>
+                    <td>
+                        <a href="/newsedit/{{unit.id}}/" title="新聞編輯"> <img src="{% static "images/note_edit.png" %}"  width="16" height="16" /></a>
+                        <a href="/newsdelete/{{unit.id}}/" title="新聞刪除"><img src="{% static "images/cross.png" %}" width="16" height="16" /></a>
+                    </td>
                     </tr>
                 {% empty %}
-                    <div class="status warning">
-                        <p><span>注意</span> 目前新聞資料庫中沒有任何資料！</p>
+                    <div>
+                        <p><img src="{% static "images/icon_warning.png" %}" alt="Warning" /><span>注意</span> 目前新聞資料庫中沒有任何資料！</p>
                     </div>
                 {% endfor %}
 
             </tbody>
         </table>
     </div>
-
-    {% endblock %}
-    
-
-{% block jquery %}
-    <script type="text/javascript" src="{% static "plugins/data-tables/jquery.dataTables.min.js" %}"></script> 
-    <script type="text/javascript" src="{% static "plugins/data-tables/dataTables.bootstrap4.min.js" %}"></script>
-    <script type="text/javascript" src="{% static "plugins/data-tables/dataTables.fixedHeader.min.js" %}"></script> 
-    <script type="text/javascript" src="{% static "plugins/data-tables/dataTables.responsive.min.js" %}"></script>
-    <script type="text/javascript" src="{% static "plugins/data-tables/responsive.bootstrap4.min.js" %}"></script>
-    <script type="text/javascript" src="{% static "js/data-table.init.js" %}"></script> 
 {% endblock %}

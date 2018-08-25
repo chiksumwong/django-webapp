@@ -3,5 +3,54 @@
 {% block title %} <title>WEB APP</title> {% endblock %}
 
 {% block content %}
-posts pages
+<div class="dzsparallaxer auto-init height-is-based-on-content "  data-options='{   direction: "reverse"}'>
+        <div class="divimage dzsparallaxer--target " style="width: 101%; height: 130%; background-image: url(images/bg-6.jpg)">
+        </div>
+
+        <div class="container pt100">
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto wow bounceIn" data-wow-delay=".2s">
+                    <h3 class="h3 mb30 text-center pt100 pb100 font300 text-white">Create your account</h3>
+                </div>
+            </div>
+        </div>
+       
+    </div><!--parallax-->
+    <!--/.page-title-->
+      <div class='container pb50 pt50-md'>
+            <div class='row'>
+                <div class='col-md-6 col-lg-5 mr-auto ml-auto'>
+                    <div class='card card-account'>
+                        <div class='card-body'>
+                            <form>
+                                 <div class='form-group'>
+                                    <label for='name'>Name</label>
+                                    <input id='name' type='text' class='form-control' placeholder='John'>
+                                </div>
+                                <div class='form-group'>
+                                    <label for='username'>Username</label>
+                                    <input id='username' type='text' class='form-control' placeholder='JohnDoe007'>
+                                </div>
+                                <div class='form-group'>
+                                    <label for='password'>Password</label>
+                                    <input id='password' type='text' class='form-control' placeholder='......'>
+                                </div>
+                                <div class='form-group'>
+                                    <label for='passwordc'>Confirm Password</label>
+                                    <input id='passwordc' type='text' class='form-control' placeholder='......'>
+                                </div>
+                                <button type='button' class='btn btn-block btn-secondary btn-rounded btn-xl'>Sign Up</button>
+                            </form>
+                            <br>
+                            <p class='mb0 text-small'>Dont' have an account? <a href='#' class='btn btn-underline'>Sign Up</a></p>
+                            <p class=' text-small mb0'>Forget your password? <a href='#' class='btn btn-underline'>Recover</a></p>
+                            <hr>
+                            <div class='text-center mb20'>Or Login with</div>
+                            <a href='#' class="btn btn-social facebook btn-block"><i class="fa fa-facebook"></i>Login with facebook</a>
+                             <a href='#' class="btn btn-social twitter btn-block"><i class="fa fa-twitter"></i>Login with Twitter</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 {% endblock %}

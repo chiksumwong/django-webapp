@@ -12,6 +12,9 @@
     <!-- Title -->
     {% block title %}{% endblock %}
 
+    <!-- Website Icon -->
+    <link rel="icon" href="{% static "images/www_logo.png" %}">
+
     <!-- Bootstrap -->
     <link href="{% static "css/plugins/plugins.css" %}" rel="stylesheet">
     <link href="{% static "plugins/masterslider/style/masterslider.css" %}" rel="stylesheet">
@@ -82,7 +85,8 @@
                                 <a href="/contact" class="nav-link">Contact</a>
                         </li>
 
-                        <li class="nav-item"><a target="_blank" href="https://wrapbootstrap.com/theme/versa-minimal-startups-bootstrap4-WB0M13NT7/?ref=wb_rakesh" class=" btn btn-primary btn-lg">LOGIN</a></li>
+                        <li class="nav-item"><a href="/login" class=" btn btn-primary btn-lg">LOGIN</a></li>
+                        <li class="nav-item"><a href="/register" class=" btn btn-danger btn-lg">REGISTER</a></li>
                     </ul>
                 </div>
 
@@ -158,6 +162,8 @@
     <!-- init cubeportfolio -->
     <script type="text/javascript" src="{% static "js/cube-portfolio-home.js" %}"></script>
 
+    <!-- JQuery should after the javascript -->
+    {% block jquery %}{% endblock %}
 
 </body>
 </html>
