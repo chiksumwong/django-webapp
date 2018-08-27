@@ -37,7 +37,14 @@ urlpatterns = [
     url(r'^index/$', news_view.news),
     url(r'^news/$', news_view.news),
     url(r'^detail/(\d+)/$',news_view.detail),
+
     url(r'^newsadd/$',news_view.addNews),
+
+    url(r'^newsedit/(\d+)/$', news_view.editNews),
+	url(r'^newsedit/(\d+)/(\d+)/$', news_view.editNews),
+
+	url(r'^newsdelete/(\d+)/$', news_view.deleteNews),
+	url(r'^newsdelete/(\d+)/(\d+)/$', news_view.deleteNews),
 
     #Shop
     url(r'^products/$', shop_view.products),
