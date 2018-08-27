@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from news import models as news_model
 import math
 # Create your views here.
@@ -42,3 +42,23 @@ def detail(request, detailid=None):  #詳細頁面
 	unit.press += 1
 	unit.save()
 	return render(request, "news/detail.html", locals())
+
+def addNews(request):  #新增資料
+	message = ''  #清除訊息
+	category = request.POST.get('news_type', '')  #取得輸入的類別
+	subject = request.POST.get('news_subject', '')
+	editor = request.POST.get('news_editor', '')
+	content = request.POST.get('news_content', '')
+	ok = request.POST.get('news_ok')
+
+	if subject=='' or editor=='' or content=='':  #若有欄位未填就顯示訊息
+		message = '每一個欄位都要填寫...'
+	else:
+		if ok=='yes':  #根據ok值設定enabled欄位
+			enabled = True
+		else:
+			enabled = False
+		unit = news_model.NewsUnit.objects.create(catego=category, nickname=editor, title=subject, message=content, enabled=enabled, press=0)
+		unit.save()
+		return redirect('/dashboard/')
+	return render(request, "news/news-add.html", locals())

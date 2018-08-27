@@ -18,7 +18,7 @@ def index(request):  #Home
 def register(request):  #Home
     return render(request, "account/register.html" ,locals())
 
-def comingSoon(request):
+def comingsoon(request):
     return render(request, "system/coming-soon.html" ,locals())
 
 def contact(request):
@@ -47,7 +47,7 @@ def logout(request):  #登出
 	auth.logout(request)
 	return redirect('/')
 
-def resetPassword(request):  #登出
+def passwordreset(request):  #登出
 	return redirect('/')
 
 def dashboard(request, pageindex=None):  #管理頁面
@@ -74,28 +74,3 @@ def dashboard(request, pageindex=None):  #管理頁面
 		newsunits = news_model.NewsUnit.objects.order_by('-id')[start:(start+pagesize)]
 	currentpage = page1
 	return render(request, "admin/dashboard.html", locals())
-
-def adminmain(request, pageindex=None):  #管理頁面
-	global page1
-	pagesize = 8
-	newsall = news_model.NewsUnit.objects.all().order_by('-id')
-	datasize = len(newsall)
-	totpage = math.ceil(datasize / pagesize)
-	if pageindex==None:
-		page1 = 1
-		newsunits = news_model.NewsUnit.objects.order_by('-id')[:pagesize]
-	elif pageindex=='1':
-		start = (page1-2)*pagesize
-		if start >= 0:
-			newsunits = news_model.NewsUnit.objects.order_by('-id')[start:(start+pagesize)]
-			page1 -= 1
-	elif pageindex=='2':
-		start = page1*pagesize
-		if start < datasize:
-			newsunits = news_model.NewsUnit.objects.order_by('-id')[start:(start+pagesize)]
-			page1 += 1
-	elif pageindex=='3':
-		start = (page1-1)*pagesize
-		newsunits = news_model.NewsUnit.objects.order_by('-id')[start:(start+pagesize)]
-	currentpage = page1
-	return render(request, "admin/adminmain.html", locals())

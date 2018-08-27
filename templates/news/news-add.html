@@ -1,0 +1,81 @@
+{% extends 'app.html' %}
+{% load staticfiles %}
+
+{% block title %} <title>WEB APP</title> {% endblock %}
+
+{% block content %}
+<div class="dzsparallaxer auto-init height-is-based-on-content "  data-options='{   direction: "reverse"}'>
+        <div class="divimage dzsparallaxer--target " style="width: 101%; height: 130%; background-image: url(images/bg-3.jpg)">
+        </div>
+
+        <div class="container pt100 pb70">
+            <div class="row pb50">
+                <div class="col-md-8 ml-auto mr-auto wow bounceIn text-center" data-wow-delay=".2s">
+                    <h3 class="h1 text-center font300  pt100 text-white">Add News</h3>
+                </div>
+            </div>
+        </div>
+</div><!--parallax-->
+
+    <div class="container pt90 pb50">
+
+        <div class="row mb40">
+            <div class="col-md-8 mr-auto ml-auto">
+     
+                
+                <form action="." id="formnews" name="formnews" method="POST">
+                    {%csrf_token %}
+
+                    <div class="row mb40">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Editor</label>
+                                <input type="text" name="news_editor" id="news_editor" class="form-control" placeholder="Name" required>
+                            </div>
+                        </div><!--input col-->
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Category</label>
+                                <select class="form-control" name="news_type" id="news_type">
+                                        <option value="Announcement" selected="selected">Announcement</option>
+                                        <option value="Update">Update</option>
+                                        <option value="Activity">Activity</option>
+                                        <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div><!--input col-->
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input name="news_subject" id="news_subject" type="text" class="form-control mb10" placeholder="Title" required>
+                            </div>
+                        </div><!--input col-->
+
+                        
+                        <div class="col-md-12 mb20">
+                            <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+                                <input type="checkbox" class="custom-control-input" name="news_ok" id="news_ok" value="yes">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">Verified</span>
+                            </label>
+
+                        </div><!-- checkbox -->
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Content</label>
+                                <textarea name="news_content" id="news_content" class="form-control" rows="40" required></textarea>
+                            </div>
+                        </div><!--input col-->
+                        
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-rounded btn-xl">SUBMIT</button>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

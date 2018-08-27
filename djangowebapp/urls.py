@@ -21,26 +21,26 @@ from news import views as news_view
 from shop import views as shop_view
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^contact', app_view.contact),
-    url(r'^comingSoon', app_view.comingSoon),
+    url(r'^admin/$', admin.site.urls),
+    url(r'^contact/$', app_view.contact),
+    url(r'^comingsoon/$', app_view.comingsoon),
 
     #Admin
-    url(r'^register', app_view.register),
-    url(r'^login', app_view.login),
+    url(r'^register/$', app_view.register),
+    url(r'^login/$', app_view.login),
     url(r'^logout/$', app_view.logout),	
-    url(r'^resetPassword/$', app_view.resetPassword),	
+    url(r'^passwordreset/$', app_view.passwordreset),	
 	url(r'^dashboard/$', app_view.dashboard),
-	url(r'^adminmain/(\d+)/$', app_view.adminmain),
 
     #News
     url(r'^$', news_view.news),
-    url(r'^index$', news_view.news),
-    url(r'^news$', news_view.news),
+    url(r'^index/$', news_view.news),
+    url(r'^news/$', news_view.news),
     url(r'^detail/(\d+)/$',news_view.detail),
+    url(r'^newsadd/$',news_view.addNews),
 
     #Shop
-    url(r'^products$', shop_view.products),
-    url(r'^shopCart$', shop_view.shopCart),
+    url(r'^products/$', shop_view.products),
+    url(r'^shopCart/$', shop_view.shopCart),
 
 ]
