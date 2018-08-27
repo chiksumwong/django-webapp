@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^register', app_view.register),
     url(r'^login', app_view.login),
     url(r'^logout/$', app_view.logout),	
+    url(r'^resetPassword/$', app_view.resetPassword),	
 	url(r'^dashboard/$', app_view.dashboard),
 	url(r'^adminmain/(\d+)/$', app_view.adminmain),
 

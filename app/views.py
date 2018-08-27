@@ -25,16 +25,16 @@ def contact(request):
     return render(request, "system/contact.html" ,locals())
 
 def login(request):  #登入
-	messages = ''  #初始時清除訊息
+	messages = 'This is Message'  #初始時清除訊息
 	if request.method == 'POST':  #如果是以POST方式才處理
-		name = request.POST['username'].strip()  #取得輸入帳號
+		name = request.POST['username']  #取得輸入帳號
 		password = request.POST['password']  #取得輸入密碼
-		user1 = authenticate(username=name, password=password)  #驗證
+		user = authenticate(username=name, password=password)  #驗證
 		
-		if user1 is not None:  #驗證通過
-			if user1.is_active:  #帳號有效
-				auth.login(request, user1)  #登入
-				return redirect('/dashboard/')  #開啟管理頁面
+		if user is not None:  #驗證通過
+			if user.is_active:  #帳號有效
+				auth.login(request, user)  #登入
+				return redirect('/dashboard')  #開啟管理頁面
 				messages = '登入成功！'
 			else:  #帳號無效
 				messages = '帳號尚未啟用！'
@@ -45,6 +45,9 @@ def login(request):  #登入
 
 def logout(request):  #登出
 	auth.logout(request)
+	return redirect('/')
+
+def resetPassword(request):  #登出
 	return redirect('/')
 
 def dashboard(request, pageindex=None):  #管理頁面
