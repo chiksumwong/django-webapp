@@ -9,26 +9,28 @@ def news(request, pageindex=None):  #首頁
 	pagesize = 10
 
 	newsall = news_model.NewsUnit.objects.all().order_by('-id')
-	datasize = len(newsall)
-	totpage = math.ceil(datasize / pagesize)
+	# datasize = len(newsall)
+	# totpage = math.ceil(datasize / pagesize)
 
-	if pageindex==None:
-		page1 = 1
-		newsunits = news_model.NewsUnit.objects.filter(enabled=True).order_by('-id')[:pagesize]
-	elif pageindex=='1':
-		start = (page1-2)*pagesize
-		if start >= 0:
-			newsunits = news_model.NewsUnit.objects.filter(enabled=True).order_by('-id')[start:(start+pagesize)]
-			page1 -= 1
-	elif pageindex=='2':
-		start = page1*pagesize
-		if start < datasize:
-			newsunits = news_model.NewsUnit.objects.filter(enabled=True).order_by('-id')[start:(start+pagesize)]
-			page1 += 1
-	elif pageindex=='3':
-		start = (page1-1)*pagesize
-		newsunits = news_model.NewsUnit.objects.filter(enabled=True).order_by('-id')[start:(start+pagesize)]
-		currentpage = page1
+	# if pageindex==None:
+	# 	page1 = 1
+	# 	newsunits = news_model.NewsUnit.objects.filter(enabled=True).order_by('-id')[:pagesize]
+	# elif pageindex=='1':
+	# 	start = (page1-2)*pagesize
+	# 	if start >= 0:
+	# 		newsunits = news_model.NewsUnit.objects.filter(enabled=True).order_by('-id')[start:(start+pagesize)]
+	# 		page1 -= 1
+	# elif pageindex=='2':
+	# 	start = page1*pagesize
+	# 	if start < datasize:
+	# 		newsunits = news_model.NewsUnit.objects.filter(enabled=True).order_by('-id')[start:(start+pagesize)]
+	# 		page1 += 1
+	# elif pageindex=='3':
+	# 	start = (page1-1)*pagesize
+	# 	newsunits = news_model.NewsUnit.objects.filter(enabled=True).order_by('-id')[start:(start+pagesize)]
+	# 	currentpage = page1
+
+	newsunits = newsall
 
 	return render(request, "news/news.html", locals())
 
@@ -58,8 +60,9 @@ def addNews(request):  #新增資料
 			enabled = True
 		else:
 			enabled = False
-		unit = news_model.NewsUnit.objects.create(catego=category, nickname=editor, title=subject, message=content, enabled=enabled, press=0)
-		unit.save()
+			unit = news_model.NewsUnit.objects.create(catego=category, nickname=editor, title=subject, message=content, enabled=enabled, press=0)
+			unit.save()
+
 		return redirect('/dashboard/')
 	return render(request, "news/news-add.html", locals())
 

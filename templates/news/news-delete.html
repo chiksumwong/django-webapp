@@ -1,0 +1,204 @@
+{% extends 'app.html' %}
+{% load staticfiles %}
+
+{% block title %} <title>WEB APP</title> {% endblock %}
+
+{% block content %}
+    <!-- <div class="container pt70 pb60">
+        <h4 class="mb20">{{title}}</h4>
+        <h5>【{{category}}】 &nbsp;&nbsp;{{pubtime}}&nbsp;&nbsp;{{nickname}}</h5>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;{{message}}
+        </p>
+    </div> -->
+
+    <div class="dzsparallaxer auto-init height-is-based-on-content "  data-options='{   direction: "reverse"}'>
+            <div class="divimage dzsparallaxer--target " style="width: 101%; height: 130%; background-image: url(images/bg-4.jpg)">
+            </div>
+
+            <div class="container pt100 pb70">
+                <div class="row pb50">
+                    <div class="col-md-8 ml-auto mr-auto wow bounceIn" data-wow-delay=".2s">
+                        <h3 class="h1 text-center font300  pt100 text-white">News</h3>
+                    </div>
+                </div>
+            </div>
+        </div><!--parallax-->
+        <!--/.page-title-->
+
+        <div class="container pt90 pb60">
+            <div class="row">
+                <div class="col-md-9 mb30">
+                   
+                    
+                    <div class="post-full">
+
+
+                        <form action="/newsdelete/{{newsid}}/1/" id="newsfrom" name="newsfrom" method="post">
+                        {% csrf_token %}
+                        <!-- Delete Button -->
+                            <input class=" btn btn-danger btn-lg" type="submit" name="button" id="button" value="Delete" />
+                            <input class="btn btn-success btn-lg" type="button" name="button3" id="button3" value="Cancel" onclick="window.location='/dashboard/'" />
+		                </form>
+
+                        <div class="blog-meta">
+                            <h2>{{subject}}</h2>
+                            <ul class="list-inline">
+                                <li class="list-inline-item"><i class="fa fa-user"></i> <a href="#" class="btn btn-underline">Admin</a></li>
+                                <li class="list-inline-item"><i class="fa fa-calendar-check-o"></i>{{date}}</li>
+                                <li class="list-inline-item"><i class="fa fa-tag"></i> <a href="#" class="btn btn-underline">{{type}}</a></li>
+                            </ul>
+                        </div><!--post meta end-->
+                        <div class="post-thumbnail">
+                            <img src="{% static "images/blog1.jpg" %}" alt="" class="img-fluid">
+                        </div>
+
+                        <div class="post-content">
+                            <p>{{content}}</p>
+                            <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae ut ratione similique temporibus tempora dicta soluta? Qui hic, voluptatem nemo quo corporis dignissimos voluptatum debitis cumque fugiat mollitia quasi quod.<br><em>John Doe</em></blockquote>
+                            <br>
+                            <h4>{{subject}}</h4>
+                            <p>{{content}}</p>
+                            <ul class="list-inline share">
+                                <li class="list-inline-item">Share it:</li>
+                                <li class="list-inline-item"><a class="btn btn-underline" href="javascript:void(0)" data-toggle="tooltip" title="" data-original-title="Facebook"><i class="fa fa-facebook"></i> Facebook</a></li>
+                                <li class="list-inline-item"><a class="btn btn-underline" href="javascript:void(0)" data-toggle="tooltip" title="" data-original-title="Twitter"><i class="fa fa-twitter"></i> Twitter</a></li>
+                                <li class="list-inline-item"><a class="btn btn-underline" href="javascript:void(0)" data-toggle="tooltip" title="" data-original-title="Pinterest"><i class="fa fa-pinterest"></i> Pinterest</a></li>
+                                <li class="list-inline-item"><a class="btn btn-underline" href="javascript:void(0)" data-toggle="tooltip" title="" data-original-title="Linkedin"><i class="fa fa-linkedin"></i> Linkedin</a></li>
+                            </ul>
+                        </div>
+                    </div><!--post end-->
+                    <hr class="mb30">
+                    <div class="comments">
+                        <h4 class="font600 h5 mb40">4 comments</h4>
+                        <div class="media">
+                            <div class="float-left mr-3">
+                                <a href="#">
+                                    <img class=" rounded-circle" src="{% static "images/team-1.jpg" %}" width="70" alt="...">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">John doe</h4>
+                                <span>POSTED ON 29 SEPTEMBER AT 10:41 / <a href="#">Reply</a></span>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque porro quae harum dolorem exercitationem voluptas illum ipsa sed hic, cum corporis autem molestias suscipit, illo laborum, vitae, dicta ullam minus.
+                                </p>
+                                <div class="space-40"></div>
+                                <div class="media">
+                                    <div class="float-left mr-3">
+                                        <a href="#">
+                                            <img class=" rounded-circle" src="{% static "images/team-2.jpg" %}" width="70" alt="...">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Nikita doe</h4>
+                                        <span>POSTED ON 29 SEPTEMBER AT 10:41 / <a href="#">Reply</a></span>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque porro quae harum dolorem exercitationem voluptas illum ipsa sed hic, cum corporis autem molestias suscipit, illo laborum, vitae, dicta ullam minus.
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="media">
+                            <div class="float-left mr-3">
+                                <a href="#">
+                                    <img class=" rounded-circle" src="{% static "images/team-3.jpg" %}" width="70" alt="...">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Nikita doe</h4>
+                                <span>POSTED ON 29 SEPTEMBER AT 10:41 / <a href="#">Reply</a></span>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque porro quae harum dolorem exercitationem voluptas illum ipsa sed hic, cum corporis autem molestias suscipit, illo laborum, vitae, dicta ullam minus.
+                                </p>
+                                <div class="space-40"></div>
+                                <div class="media">
+                                    <div class="float-left mr-3">
+                                        <a href="#">
+                                            <img class=" rounded-circle" src="{% static "images/team-4.jpg" %}" width="70" alt="...">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">John doe</h4>
+                                        <span>POSTED ON 29 SEPTEMBER AT 10:41 / <a href="#">Reply</a></span>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque porro quae harum dolorem exercitationem voluptas illum ipsa sed hic, cum corporis autem molestias suscipit, illo laborum, vitae, dicta ullam minus.
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div><!--end comments-->
+                    <hr class="mb40 mt40">
+                    <div class="leave-comment">
+                        <h4 class="mb30 font600 h5">Leave a comment</h4>
+                        <form class="comment-form">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input name="author" type="text" placeholder="Name" class="form-control">
+                                    </div> 
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input name="email" type="text" placeholder="Email" class="form-control">
+                                    </div> 
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <textarea placeholder="Comment" rows="5" class="form-control"></textarea>
+                            </div>
+                            <div class=" text-right">
+                                <button type="button" class="btn btn-dark btn-xl">Post Comment</button>
+                            </div>
+                        </form>
+                    </div>
+
+
+
+                    <nav class="clearfix pt60">                     
+                        <a class="btn btn-light float-right" href="#">Older <i class="fa fa-angle-right"></i></a>
+                        <a class="btn btn-light disabled"><i class="fa fa-angle-left"></i> Newer</a>
+                    </nav>
+                </div>
+                <div class="col-md-3">
+                    <div class="widget">
+                        <h3>Search blog</h3>
+                        <form>
+                            <input type="text" class="form-control" placeholder="Search &amp; hit enter">
+                        </form>
+                    </div><!--end widget-->
+                    <div class="widget">
+                        <h3>Post categories</h3>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="btn btn-underline">Web design</a></li>
+                            <li><a href="#" class="btn btn-underline">Bootstrap4</a></li>
+                            <li><a href="#" class="btn btn-underline">Angular js</a></li>
+                            <li><a href="#" class="btn btn-underline">Jquery</a></li>
+                        </ul>
+                    </div><!--end widget-->
+                    <div class="widget">
+                        <h3>About Author</h3>
+                        <p>
+                            Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.
+                        </p>
+                    </div><!--end widget-->
+                    <div class="widget">
+                        <h3>Tags</h3>
+                        <ul class="list-inline tag-list">
+                            <li><a href="#">Web design</a></li>
+                            <li><a href="#">Bootstrap4</a></li>
+                            <li><a href="#">Angular js</a></li>
+                            <li><a href="#">Jquery</a></li>
+                        </ul>
+                    </div><!--end widget-->
+                </div>
+            </div>
+        </div>
+{% endblock %}
