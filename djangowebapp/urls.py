@@ -21,7 +21,7 @@ from news import views as news_view
 from shop import views as shop_view
 
 urlpatterns = [
-    url(r'^admin/$', admin.site.urls),
+    url(r'^admin/', admin.site.urls),
     url(r'^contact/$', app_view.contact),
     url(r'^comingsoon/$', app_view.comingsoon),
 
