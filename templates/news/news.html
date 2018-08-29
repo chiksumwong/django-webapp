@@ -51,12 +51,6 @@
                 <td>{{ unit.pubtime }}</td>
                 <td>{{ unit.press }}</td>
             </tr>
-            {% empty %}
-            <div class="status warning">
-                <p>
-                    <span>注意</span> 目前新聞資料庫中沒有任何資料！
-                </p>
-            </div>
             {% endfor %}
 
         </tbody>
@@ -69,7 +63,7 @@
 {% block jquery %}
     <script type="text/javascript" src="{% static "plugins/data-tables/jquery.dataTables.min.js" %}"></script> 
     <script type="text/javascript" src="{% static "plugins/data-tables/dataTables.bootstrap4.min.js" %}"></script>
-    <script type="text/javascript" src="{% static "plugins/data-tables/dataTables.fixedHeader.min.js" %}"></script> 
+    <!--<script type="text/javascript" src="{% static "plugins/data-tables/dataTables.fixedHeader.min.js" %}"></script> -->
     <script type="text/javascript" src="{% static "plugins/data-tables/dataTables.responsive.min.js" %}"></script>
     <script type="text/javascript" src="{% static "plugins/data-tables/responsive.bootstrap4.min.js" %}"></script>
     <script type="text/javascript" src="{% static "js/data-table.init.js" %}"></script> 

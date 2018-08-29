@@ -3,51 +3,57 @@
 {% block title %} <title>WEB APP</title> {% endblock %}
 
 {% block content %}
-<div class="dzsparallaxer auto-init height-is-based-on-content "  data-options='{   direction: "reverse"}'>
-        <div class="divimage dzsparallaxer--target " style="width: 101%; height: 130%; background-image: url(images/bg-6.jpg)">
-        </div>
+<div class="dzsparallaxer auto-init height-is-based-on-content " data-options='{   direction: "reverse"}'>
+    <div class="divimage dzsparallaxer--target "
+         style="width: 101%; height: 130%; background-image: url(images/bg-6.jpg)">
+    </div>
 
-        <div class="container pt100">
-            <div class="row">
-                <div class="col-md-8 ml-auto mr-auto wow bounceIn" data-wow-delay=".2s">
-                    <h3 class="h3 mb30 text-center pt100 pb100 font300 text-white">Login Your Account</h3>
-                </div>
+    <div class="container pt100">
+        <div class="row">
+            <div class="col-md-8 ml-auto mr-auto wow bounceIn" data-wow-delay=".2s">
+                <h3 class="h3 mb30 text-center pt100 pb100 font300 text-white">Login Your Account</h3>
             </div>
         </div>
-       
-    </div><!--parallax-->
+    </div>
 
-      <div class='container pb50  pt50-md'>
-            <div class='row'>
-                <div class='col-md-6 col-lg-5 mr-auto ml-auto'>
-                    <div class='card card-account'>
-                        <div class='card-body'>
+</div><!--parallax-->
+
+<div class='container pb50  pt50-md'>
+    <div class='row'>
+        <div class='col-md-6 col-lg-5 mr-auto ml-auto'>
+            <div class='card card-account'>
+                <div class='card-body'>
 
 
-                            <form action="/login/" method="POST" id="loginform">
-                                {% csrf_token %}
-                                <div class='form-group'>
-                                    <label for='username'>Username</label>
-                                    <input name="username" id='username' type='text' class='form-control' placeholder='John Doe' required>
-                                </div>
-                                <div class='form-group'>
-                                    <label for='password'>Password</label>
-                                    <input name="password" id='password' type='password' class='form-control' placeholder='......' required>
-                                </div>
-                                <input type='submit' class='btn btn-block btn-secondary btn-rounded' value="SUBMIT" />
-                            </form>
-                            
-
-                            <br>
-                            <p class='mb0 text-small'>Dont' have an account? <a href='/register' class='btn btn-underline'>Sign Up</a></p>
-                            <p class=' text-small mb0'>Forget your password? <a href='/resetPassword' class='btn btn-underline'>Recover</a></p>
-                            <hr>
-                            <div class='text-center mb20'>Or Login with</div>
-                            <a href='#' class="btn btn-social facebook btn-block"><i class="fa fa-facebook"></i>Login with facebook</a>
-                            <a href='#' class="btn btn-social twitter btn-block"><i class="fa fa-twitter"></i>Login with Twitter</a>
+                    <form action="/login/" method="POST" id="loginform">
+                        {% csrf_token %}
+                        <div class='form-group'>
+                            <label for='username'>Username</label>
+                            <input name="username" id='username' type='text' class='form-control'
+                                   placeholder='John Doe' required>
                         </div>
-                    </div>
+                        <div class='form-group'>
+                            <label for='password'>Password</label>
+                            <input name="password" id='password' type='password' class='form-control'
+                                   placeholder='......' required>
+                        </div>
+                        <input type='submit' class='btn btn-block btn-secondary btn-rounded' value="SUBMIT"/>
+                    </form>
+
+
+                    <br>
+                    <p class='mb0 text-small'>Dont' have an account? <a href='/register' class='btn btn-underline'>Sign
+                        Up</a></p>
+                    <p class=' text-small mb0'>Forget your password? <a href='/resetPassword' class='btn btn-underline'>Recover</a>
+                    </p>
+                    <hr>
+                    <div class='text-center mb20'>Or Login with</div>
+                    <a href='#' class="btn btn-social facebook btn-block"><i class="fa fa-facebook"></i>Login with
+                        facebook</a>
+                    <a href='#' class="btn btn-social twitter btn-block"><i class="fa fa-twitter"></i>Login with Twitter</a>
                 </div>
             </div>
         </div>
+    </div>
+</div>
 {% endblock %}
