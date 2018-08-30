@@ -27,7 +27,7 @@ def contact(request):
 def login(request):  #登入
 	messages = 'This is Message'  #初始時清除訊息
 	if request.method == 'POST':  #如果是以POST方式才處理
-		name = request.POST['username']  #取得輸入帳號
+		name = request.POST['username'].strip()  #取得輸入帳號
 		password = request.POST['password']  #取得輸入密碼
 		user = authenticate(username=name, password=password)  #驗證
 		
