@@ -10,7 +10,7 @@ def products(request):  #Shop Cart
 def detail(request):  #Shop Cart
     return render(request, "shop/shop-detail.html" ,locals())
 
-from cartapp import models
+from shop import models as shop_model
 from smtplib import SMTP, SMTPAuthenticationError, SMTPException
 from email.mime.text import MIMEText
 
