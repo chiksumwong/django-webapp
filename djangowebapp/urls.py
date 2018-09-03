@@ -48,8 +48,8 @@ urlpatterns = [
 
     #Shop
     url(r'^products/$', shop_view.products),
-    url(r'^detail/(\d+)/$', shop_view.detail),
-    url(r'^shopCart/$', shop_view.shopCart),
+    url(r'^product/(\d+)/$', shop_view.detail),
+    url(r'^cart/$', shop_view.shopCart),
 
     url(r'^addtocart/(\w+)/$', shop_view.addtocart),
     url(r'^addtocart/(\w+)/(\d+)/$', shop_view.addtocart),

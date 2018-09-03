@@ -64,10 +64,11 @@
 
     {% for product in productall %}
         <div class="col-md-4 mb40">
-              <a class="shop-item-card" href="/detail/{{product.id}}">
+              <a class="shop-item-card" href="/product/{{product.id}}">
                   <img src="/static/images/shop_cart/{{product.pimages}}" alt="產品詳細資料" width="135" height="135" border="0" />
                   <h5 class="font600 h6">
-                    {{product.pname}}
+                      <span class="float-right badge badge-primary">-30%</span>
+                      {{product.pname}}
                   </h5>
                   <p class="lead text-muted">${{product.pprice}}</p>
               </a>

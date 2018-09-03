@@ -1,12 +1,17 @@
 {% extends 'app.html' %}
 
+<!-- load static file -->
+{% load staticfiles %}
+
 {% block title %} <title>WEB APP</title> {% endblock %}
 
 {% block content %}
 <!--page title-->
 <div class="page-title-light">
     <div class="container">
-        <h2>Get fit with awesome apple watch</h2>
+        <h2>{{product.pname}}</h2>
+        <h3>${{product.pprice}}</h3>
+
     </div>
 </div>
 <!--/.page-title-->
@@ -14,29 +19,31 @@
 <div class="container pt90 pb50">
     <div class="row">
         <div class="col-lg-8 text-center ml-auto mr-auto mb40">
-            <img src="images/shop/single1.png" alt="" class="center-img img-fluid mb50">
+            <img src="/static/images/shop_cart/{{product.pimages}}" alt="" class="center-img img-fluid mb50">
             <h4 class=" h2 mb40">Beautiful style</h4>
             <p class="lead">
-                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+                {{product.pdescription}}
             </p>
         </div>
     </div>
 </div>
+
 <div class="bg-faded pt90 pb50">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-5 ml-auto mb40">
-                <img src="images/shop/single2.png" alt="" class="center-img img-fluid">
+                <img src="/static/images/shop_cart/{{product.pimages}}" alt="" class="center-img img-fluid">
             </div>
             <div class="col-lg-5 mr-auto ml-auto mb40">
                 <h4 class=" h2 mb40">Waterproof amazing quality build for fitness.</h4>
                 <p class=" text-muted">
-                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+                    {{product.pdescription}}
                 </p>
             </div>
         </div>
     </div>
 </div>
+
 <div class="bg-white pt90 pb50">
     <div class="container">
         <div class="row align-items-center">
@@ -44,48 +51,22 @@
             <div class="col-lg-5 mr-auto ml-auto mb40">
                 <h4 class=" h2 mb40">A watch that works full day with amazing battery life</h4>
                 <p class=" text-muted">
-                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+                    {{product.pdescription}}
                 </p>
             </div>
+
             <div class="col-lg-5 ml-auto mb40">
                 <div class="owl-carousel owl-theme owl-image-header">
                     <div class="item">
-                        <img src="images/shop/single1.png" alt="" class="img-fluid">
+                        <img src="/static/images/shop_cart/{{product.pimages}}" alt="" class="img-fluid">
                     </div>
                     <div class="item">
-                        <img src="images/shop/single2.png" alt="" class="img-fluid">
+                        <img src="/static/images/shop_cart/{{product.pimages}}" alt="" class="img-fluid">
                     </div>
                     <div class="item">
-                        <img src="images/shop/single3.png" alt="" class="img-fluid">
+                        <img src="/static/images/shop_cart/{{product.pimages}}" alt="" class="img-fluid">
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="bg-faded pt90 pb90">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 ml-auto mr-auto text-center">
-                <h2>Ready to get fit with apple watch?</h2>
-                <h2 class="font600 h1">$299.00</h2>
-                <p class="lead text-muted">Cash on delivery is available</p>
-                <a href="#" class="btn btn-rounded btn-primary btn-xl">Add to cart</a>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="bg-danger pt90 pb90">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 mr-auto ml-auto text-center">
-                <h3 class="text-white h2 mb20">
-                    Purchase Versa today and get all great future updates for lifetime free.
-                </h3>
-                <p class="lead text-white text-muted mb20">
-                    If you use this site regularly and would like to help keep the site on the Internet, please consider donating a small sum to help pay for the hosting and bandwidth bill. 
-                </p>
-                <a href="#" class="btn btn-light btn-lg btn-rounded">Buy Now ($17)</a>
             </div>
         </div>
     </div>
