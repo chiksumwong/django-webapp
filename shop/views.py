@@ -1,15 +1,4 @@
 from django.shortcuts import render, redirect
-
-# Create your views here.
-def shopCart(request):  #Shop Cart
-    return render(request, "shop/shop-cart.html" ,locals())
-
-def products(request):  #Shop Cart
-    return render(request, "shop/shop-products.html" ,locals())
-    
-def detail(request):  #Shop Cart
-    return render(request, "shop/shop-detail.html" ,locals())
-
 from shop import models as shop_model
 from smtplib import SMTP, SMTPAuthenticationError, SMTPException
 from email.mime.text import MIMEText
@@ -21,33 +10,33 @@ customphone = ''  #購買者電話
 customaddress = ''  #購買者地址
 customemail = ''  #購買者電子郵件
 
-def index(request):
+def products(request):
 	global cartlist
 	if 'cartlist' in request.session:  #若session中存在cartlist就讀出
 		cartlist = request.session['cartlist']
 	else:  #重新購物
 		cartlist = []
 	cartnum = len(cartlist)  #購買商品筆數
-	productall = models.ProductModel.objects.all()  #取得資料庫所有商品
-	return render(request, "index.html", locals())
+	productall = shop_model.ProductModel.objects.all()  #取得資料庫所有商品
+	return render(request, "shop/shop-products.html", locals())
 
 def detail(request, productid=None):  #商品詳細頁面
-	product = models.ProductModel.objects.get(id=productid)  #取得商品
-	return render(request, "detail.html", locals())
+	product = shop_model.ProductModel.objects.get(id=productid)  #取得商品
+	return render(request, "shop/shop-detail.html", locals())
 
-def cart(request):  #顯示購物車
+def shopCart(request):  #顯示購物車
 	global cartlist
 	cartlist1 = cartlist  #以區域變數傳給模版
 	total = 0
 	for unit in cartlist:  #計算商品總金額
 		total += int(unit[3])
 	grandtotal = total + 100  #加入運費總額
-	return render(request, "cart.html", locals())
+	return render(request, "shop/shop-cart.html", locals())
 
 def addtocart(request, ctype=None, productid=None):
 	global cartlist
 	if ctype == 'add':  #加入購物車
-		product = models.ProductModel.objects.get(id=productid)
+		product = shop_model.ProductModel.objects.get(id=productid)
 		flag = True  #設檢查旗標為True
 		for unit in cartlist:  #逐筆檢查商品是否已存在
 			if product.pname == unit[0]:  #商品已存在
@@ -112,10 +101,10 @@ def cartok(request):  #按確認購買鈕
 		message = '姓名、電話、住址及電子郵件皆需輸入'
 		return redirect('/cartorder/')
 	else:
-		unitorder = models.OrdersModel.objects.create(subtotal=total, shipping=100, grandtotal=grandtotal, customname=customname, customphone=customphone, customaddress=customaddress, customemail=customemail, paytype=paytype) #建立訂單
+		unitorder = shop_model.OrdersModel.objects.create(subtotal=total, shipping=100, grandtotal=grandtotal, customname=customname, customphone=customphone, customaddress=customaddress, customemail=customemail, paytype=paytype) #建立訂單
 		for unit in cartlist:  #將購買商品寫入資料庫
 			total = int(unit[1]) * int(unit[2])
-			unitdetail = models.DetailModel.objects.create(dorder=unitorder, pname=unit[0], unitprice=unit[1], quantity=unit[2], dtotal=total)
+			unitdetail = shop_model.DetailModel.objects.create(dorder=unitorder, pname=unit[0], unitprice=unit[1], quantity=unit[2], dtotal=total)
 		orderid = unitorder.id  #取得訂單id
 		mailfrom="你的gmail帳號"  #帳號
 		mailpw="你的gmail密碼"  #密碼
@@ -133,11 +122,11 @@ def cartordercheck(request):  #查詢訂單
 	if orderid == '' and customemail == '':  #按查詢訂單鈕
 		firstsearch = 1
 	else:
-		order = models.OrdersModel.objects.filter(id=orderid).first()
+		order = shop_model.OrdersModel.objects.filter(id=orderid).first()
 		if order == None or order.customemail != customemail:  #查不到資料
 			notfound = 1
 		else:  #找到符合的資料
-			details = models.DetailModel.objects.filter(dorder=order)
+			details = shop_model.DetailModel.objects.filter(dorder=order)
 	return render(request, "cartordercheck.html", locals())
 
 def send_simple_message(mailfrom, mailpw, mailto, mailsubject, mailcontent): #寄信

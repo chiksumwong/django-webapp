@@ -1,11 +1,13 @@
 {% extends 'app.html' %}
+<!-- load static file -->
+{% load staticfiles %}
 
 {% block title %} <title>WEB APP</title> {% endblock %}
 
 {% block content %}
 <!--page title-->
 <div class="dzsparallaxer auto-init height-is-based-on-content "  data-options='{   direction: "reverse"}'>
-    <div class="divimage dzsparallaxer--target " style="width: 101%; height: 130%; background-image: url(images/bg-3.jpg)">
+    <div class="divimage dzsparallaxer--target " style="width: 101%; height: 130%">
     </div>
 
     <div class="container pt100 pb70">
@@ -20,6 +22,8 @@
 <!--/.page-title-->
 
 <div class="container pt90 pb50">
+
+    <!--Selection Bar-->
     <div class="row">
         <div class="col-md-6 mb20">
             <em>Showing 12 from 340 items</em>
@@ -33,136 +37,44 @@
              </select>
         </div>
     </div>
+
+    <!--products-->
     <div class="row">
+
+
+        <!--<div class="col-md-4 mb40">-->
+            <!--<a class="shop-item-card" href="/detail">-->
+                <!--<img src="{% static "images/shop/1.jpg" %}" alt="" class="img-fluid mb20">-->
+                <!--<h5 class="font600 h6">-->
+                    <!--<span class="float-right badge badge-primary">-30%</span>-->
+                    <!--Smart watch fasttrack-->
+                <!--</h5>-->
+                <!--<p class="lead text-muted">$99.00</p>-->
+            <!--</a>-->
+        <!--</div>-->
+        <!--<div class="col-md-4 mb40">-->
+            <!--<a class="shop-item-card" href="/detail">-->
+                <!--<img src="{% static "images/shop/2.jpg" %}" alt="" class="img-fluid mb20">-->
+                <!--<h5 class="font600 h6">-->
+                    <!--Headphones apple-->
+                <!--</h5>-->
+                <!--<p class="lead text-muted">$199.00</p>-->
+            <!--</a>-->
+        <!--</div>-->
+
+    {% for product in productall %}
         <div class="col-md-4 mb40">
-            <a class="shop-item-card" href="/detail">
-                <img src="images/shop/1.jpg" alt="" class="img-fluid mb20">
-                <h5 class="font600 h6">
-                    <span class="float-right badge badge-primary">-30%</span>
-                    Smart watch fasttrack
-                </h5>
-                <p class="lead text-muted">$99.00</p>
-            </a>
+              <a class="shop-item-card" href="/detail/{{product.id}}">
+                  <img src="/static/images/shop_cart/{{product.pimages}}" alt="產品詳細資料" width="135" height="135" border="0" />
+                  <h5 class="font600 h6">
+                    {{product.pname}}
+                  </h5>
+                  <p class="lead text-muted">${{product.pprice}}</p>
+              </a>
         </div>
-        <div class="col-md-4 mb40">
-            <a class="shop-item-card" href="/detail">
-                <img src="images/shop/2.jpg" alt="" class="img-fluid mb20">
-                <h5 class="font600 h6">
-                    Headphones apple
-                </h5>
-                <p class="lead text-muted">$199.00</p>
-            </a>
-        </div>
-        <div class="col-md-4 mb40">
-            <a class="shop-item-card" href="/detail">
-                <img src="images/shop/3.jpg" alt="" class="img-fluid mb20">
-                <h5 class="font600 h6">
-                    Earphones sony music
-                </h5>
-                <p class="lead text-muted">$221.00</p>
-            </a>
-        </div>
-        <div class="col-md-4 mb40">
-            <a class="shop-item-card" href="/detail">
-                <img src="images/shop/4.jpg" alt="" class="img-fluid mb20">
-                <h5 class="font600 h6">
-                    Watch fasttrack
-                </h5>
-                <p class="lead text-muted">$49.00</p>
-            </a>
-        </div>
-        <div class="col-md-4 mb40">
-            <a class="shop-item-card" href="/detail">
-                <img src="images/shop/5.jpg" alt="" class="img-fluid mb20">
-                <h5 class="font600 h6">
-                    <span class="float-right badge badge-primary">-30%</span>
-                    Smart watch fasttrack
-                </h5>
-                <p class="lead text-muted">$99.00</p>
-            </a>
-        </div>
-        <div class="col-md-4 mb40">
-            <a class="shop-item-card" href="/detail">
-                <img src="images/shop/6.jpg" alt="" class="img-fluid mb20">
-                <h5 class="font600 h6">
-                    <span class="float-right badge badge-danger">-10%</span>
-                   Ray bon sunglass
-                </h5>
-                <p class="lead text-muted">$149.00</p>
-            </a>
-        </div>
-        <div class="col-md-4 mb40">
-            <a class="shop-item-card" href="/detail">
-                <img src="images/shop/7.jpg" alt="" class="img-fluid mb20">
-                <h5 class="font600 h6">
-                    <span class="float-right badge badge-success">-5%</span>
-                   Rain jacket woodland
-                </h5>
-                <p class="lead text-muted">$29.00</p>
-            </a>
-        </div>
-        <div class="col-md-4 mb40">
-            <a class="shop-item-card" href="/detail">
-                <img src="images/shop/8.jpg" alt="" class="img-fluid mb20">
-                <h5 class="font600 h6">
-                    Laptop Chair
-                </h5>
-                <p class="lead text-muted">$09.00</p>
-            </a>
-        </div>
-        <div class="col-md-4 mb40">
-            <a class="shop-item-card" href="/detail">
-                <img src="images/shop/9.jpg" alt="" class="img-fluid mb20">
-                <h5 class="font600 h6">
-                    Titon smart hand watch
-                </h5>
-                <p class="lead text-muted">$49.00</p>
-            </a>
-        </div>
-        <div class="col-md-4 mb40">
-            <a class="shop-item-card" href="/detail">
-                <img src="images/shop/10.jpg" alt="" class="img-fluid mb20">
-                <h5 class="font600 h6">
-                    <span class="float-right badge badge-warning">Free Shipping</span>
-                   Casual shirt
-                </h5>
-                <p class="lead text-muted">$19.00</p>
-            </a>
-        </div>
-        <div class="col-md-4 mb40">
-            <a class="shop-item-card" href="/detail">
-                <img src="images/shop/11.jpg" alt="" class="img-fluid mb20">
-                <h5 class="font600 h6">
-                    Shopping bag
-                </h5>
-                <p class="lead text-muted">$05.00</p>
-            </a>
-        </div>
-        <div class="col-md-4 mb40">
-            <a class="shop-item-card" href="/detail">
-                <img src="images/shop/12.jpg" alt="" class="img-fluid mb20">
-                <h5 class="font600 h6">
-                    <span class="float-right badge badge-primary">-5%</span>
-                    Chair almanto
-                </h5>
-                <p class="lead text-muted">$12.00</p>
-            </a>
-        </div>
-    </div>
-</div>
-<div class="bg-danger pt90 pb90">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 mr-auto ml-auto text-center">
-                <h3 class="text-white h2 mb20">
-                    Purchase Versa today and get all great future updates for lifetime free.
-                </h3>
-                <p class="lead text-white text-muted mb20">
-                    If you use this site regularly and would like to help keep the site on the Internet, please consider donating a small sum to help pay for the hosting and bandwidth bill. 
-                </p>
-                <a href="#" class="btn btn-light btn-lg btn-rounded">Buy Now ($17)</a>
-            </div>
-        </div>
+    {% endfor %}
+
+
     </div>
 </div>
 {% endblock %}
