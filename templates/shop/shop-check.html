@@ -26,37 +26,37 @@
 
             {% if firstsearch == 1 %}
             <form action="/cartordercheck/" method="GET" name="form1">
-                <p class="title">訂單查詢 </p>
+                <p>訂單查詢 </p>
                 <table border="0" align="center" cellpadding="10" cellspacing="0">
                     <tr>
                         <td>訂單編號</td>
-                        <td><input name="orderid" type="text" class="normalinput" size="10" required/></td>
+                        <td><input name="orderid" type="text" size="10" required/></td>
                         <td>客戶電子郵件</td>
-                        <td><input name="customemail" type="text" class="normalinput" required/></td>
+                        <td><input name="customemail" type="text" required/></td>
                         <td><input type="submit" name="Submit3" value="送出"/></td>
                     </tr>
                 </table>
             </form>
             {% else %}
             {% if notfound == 1 %}
-            <div class="message">對不起，資料庫中並沒相關的資訊，請重新輸入。</div>
+            <div>對不起，資料庫中並沒相關的資訊，請重新輸入。</div>
             <form action="/cartordercheck/" method="GET" name="form2">
-                <p class="title">訂單查詢 </p>
+                <p>訂單查詢 </p>
                 <table border="0" align="center" cellpadding="10" cellspacing="0">
                     <tr>
                         <td>訂單編號</td>
-                        <td><input name="orderid" type="text" class="normalinput" size="10" required/></td>
+                        <td><input name="orderid" type="text" size="10" required/></td>
                         <td>客戶電子郵件</td>
-                        <td><input name="customemail" type="text" class="normalinput" required/></td>
+                        <td><input name="customemail" type="text" required/></td>
                         <td><input type="submit" name="Submit3" value="送出"/></td>
                     </tr>
                 </table>
             </form>
             {% else %}
-            <p class="title">訂單資料 </p>
-            <p class="subject">訂單編號：{{orderid}}<font color="#FF0000"></font></p>
+            <p>訂單資料 </p>
+            <p>訂單編號：{{orderid}}<font color="#FF0000"></font></p>
             <table width="90%" border="0" align="center" cellpadding="4" cellspacing="1">
-                <tr class="head3">
+                <tr>
                     <td align="center" bgcolor="#CCCCCC">商品名稱</td>
                     <td width="80" align="center" bgcolor="#CCCCCC">單價</td>
                     <td width="80" align="center" bgcolor="#CCCCCC">數量</td>
@@ -71,21 +71,21 @@
                 </tr>
                 {% endfor %}
                 <tr>
-                    <td colspan="3" align="left" bgcolor="#FFFFFF" class="upline"><strong>小計</strong></td>
-                    <td width="150" align="center" bgcolor="#FFFFFF" class="upline"><strong>$
+                    <td colspan="3" align="left" bgcolor="#FFFFFF"><strong>小計</strong></td>
+                    <td width="150" align="center" bgcolor="#FFFFFF"><strong>$
                         {{order.subtotal}}</strong></td>
                 </tr>
                 <tr>
-                    <td colspan="3" align="left" bgcolor="#FFFFFF" class="upline"><strong>運費</strong> (固定運費 100 元)</td>
-                    <td width="150" align="center" bgcolor="#FFFFFF" class="upline"><strong>$ 100</strong></td>
+                    <td colspan="3" align="left" bgcolor="#FFFFFF"><strong>運費</strong> (固定運費 100 元)</td>
+                    <td width="150" align="center" bgcolor="#FFFFFF"><strong>$ 100</strong></td>
                 </tr>
                 <tr>
-                    <td colspan="3" align="left" bgcolor="#FFFFFF" class="downline"><strong>總計</strong></td>
-                    <td width="150" align="center" bgcolor="#FFFFFF" class="downline"><strong><font color="#FF0000">$
+                    <td colspan="3" align="left" bgcolor="#FFFFFF"><strong>總計</strong></td>
+                    <td width="150" align="center" bgcolor="#FFFFFF"><strong><font color="#FF0000">$
                         {{order.grandtotal}}</font></strong></td>
                 </tr>
             </table>
-            <p class="subject">客戶資料 </p>
+            <p>客戶資料 </p>
             <table width="90%" border="0" align="center" cellpadding="4" cellspacing="1">
                 <tr>
                     <td width="100" align="center" bgcolor="#CCCCCC"><strong>姓名</strong></td>
