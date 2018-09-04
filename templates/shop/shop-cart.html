@@ -1,122 +1,98 @@
 {% extends 'app.html' %}
+{% load staticfiles %}
 
 {% block title %} <title>WEB APP</title> {% endblock %}
 
+{% block script %}
+  <script type="text/javascript">
+    function confirmLink(message) { //v1.0
+    if(message == "") message = "確定";
+      document.returnValue = confirm(message);
+    }
+  </script>
+{% endblock %}
+
 {% block content %}
-        <!--page title-->
-        <div class="dzsparallaxer auto-init height-is-based-on-content "  data-options='{   direction: "reverse"}'>
-                <div class="divimage dzsparallaxer--target " style="width: 101%; height: 130%; background-image: url(images/bg-3.jpg)">
-                </div>
-    
-                <div class="container pt100 pb70">
-                    <div class="row pb50">
-                        <div class="col-md-8 ml-auto mr-auto wow bounceIn text-center" data-wow-delay=".2s">
-                            <h3 class="h1 text-center font300  pt100 text-white">Shopping cart</h3>
-                        </div>
-                    </div>
-                </div>
-            </div><!--parallax-->
-            <!--/.page-title-->
-    
-            <div class="container pt90 pb50">
-                 <div class="clearfix mb30">
-                     <a href="#" class="btn btn-dark btn-rounded float-right">Clear Cart</a>
-                    <h5>2 items in your cart</h5>
-                </div>
-                <hr class="mb60">
-               
-                <div class="row cart-products">
-                    <div class="col-md-4 mb40">
-                        <div class="shop-item-card">
-                            <a class="close" href="#" data-toggle="tooltip" data-placement="top" title="Remove"><i class="fa fa-times"></i></a>
-                            <img src="images/shop/1.jpg" alt="" class="img-fluid mb20">
-                            <h5 class="font600 h6">
-                                <span class="float-right badge badge-primary">-30%</span>
-                                Smart watch fasttrack
-                            </h5>
-                            <p class="lead text-muted">$99.00</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb40">
-                        <div class="shop-item-card">
-                                                    <a class="close" href="#" data-toggle="tooltip" data-placement="top" title="Remove"><i class="fa fa-times"></i></a>
-                            <img src="images/shop/2.jpg" alt="" class="img-fluid mb20">
-                            <h5 class="font600 h6">
-                                Headphones apple
-                            </h5>
-                            <p class="lead text-muted">$199.00</p>
-                        </div>
-                    </div>
-                </div><hr class="mb60">
-                <div class="row cart-table mb40">
-                    <div class="col-md-6 ml-auto">
-                        <table class="table table-responsive table-hover">
-                            <thead>
-                            <tr>
-                                <th>Items</th>
-                                 <th>Qty</th>
-                                 <th>Amount</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        Black wide watch
-                                    </td>
-                                    <td>x1</td>
-                                    <td>$99.00</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Apple earphone
-                                    </td>
-                                    <td>x1</td>
-                                    <td>$199.00</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                       
-                                    </td>
-                                    <td>Subtotal</td>
-                                    <td>$298.00</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                       
-                                    </td>
-                                    <td>Vat.</td>
-                                    <td>$12.00</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                       
-                                    </td>
-                                    <td class="font600">Total</td>
-                                    <td class="font700">$310.00</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td><a href="#" class="btn btn-rounded btn-dark btn-xl">Update Cart</a></td>
-                                    <td><a href="#" class="btn btn-primary btn-rounded btn-xl">Checkout</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+<!--page title-->
+<div class="dzsparallaxer auto-init height-is-based-on-content " data-options='{   direction: "reverse"}'>
+    <div class="divimage dzsparallaxer--target "
+         style="width: 101%; height: 130%">
+    </div>
+
+    <div class="container pt100 pb70">
+        <div class="row pb50">
+            <div class="col-md-8 ml-auto mr-auto wow bounceIn text-center" data-wow-delay=".2s">
+                <h3 class="h1 text-center font300  pt100 text-white">Shopping cart</h3>
             </div>
-            <div class="bg-danger pt90 pb90">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 mr-auto ml-auto text-center">
-                            <h3 class="text-white h2 mb20">
-                                Purchase Versa today and get all great future updates for lifetime free.
-                            </h3>
-                            <p class="lead text-white text-muted mb20">
-                                If you use this site regularly and would like to help keep the site on the Internet, please consider donating a small sum to help pay for the hosting and bandwidth bill. 
-                            </p>
-                            <a href="#" class="btn btn-light btn-lg btn-rounded">Buy Now ($17)</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        </div>
+    </div>
+</div>
+
+<!--Shopping Cart-->
+<div class="container pt90 pb50">
+    <div class="row cart-table mb40">
+        <div class="col-md-12 ml-auto">
+
+            <form action="/addtocart/update/" method="post" name="form1" id="form1">
+                {% csrf_token %}
+                <table class="table table-responsive table-hover">
+                    <thead>
+                    <tr>
+                        <th width="60" align="center"><strong>取消</strong></th>
+                        <th align="left"><strong>商品名稱</strong></th>
+                        <th width="80" align="center"><strong>單價</strong></th>
+                        <th width="80" align="center"><strong>數量</strong></th>
+                        <th width="100" align="center"><strong>金額</strong></th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <!--Items-->
+                    {% for unit in cartlist1 %}
+                    <tr>
+                        <td bgcolor="#FFFFFF">
+                            <a href="/addtocart/remove/{{forloop.counter0}}" class="delcart" onClick="confirmLink('您確定要刪除這個商品嗎？'); return document.returnValue">刪除</a>
+                        </td>
+                        <td align="left" bgcolor="#FFFFFF">{{unit.0}}</td>
+                        <td width="80" align="center" bgcolor="#FFFFFF">$ {{unit.1}}</td>
+                        <td width="80" align="center" bgcolor="#FFFFFF">
+                            <input name="qty{{forloop.counter0}}" type="text" id="qty{{forloop.counter0}}" value="{{unit.2}}" size="2"/>
+                        </td>
+                        <td width="100" align="center" bgcolor="#FFFFFF"><strong>$ {{unit.3}}</strong></td>
+                    </tr>
+                    {% endfor %}
+
+                    <tr>
+                        <td colspan="4" align="left" bgcolor="#FFFFFF" class="upline"><strong>小計</strong></td>
+                        <td align="center" bgcolor="#FFFFFF" class="upline"> $ {{total}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" align="left" bgcolor="#FFFFFF" class="upline"><strong>運費</strong> (固定運費 100 元)
+                        </td>
+                        <td width="100" align="center" bgcolor="#FFFFFF" class="upline">$ 100</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" align="left" bgcolor="#FFFFFF"><strong>總計</strong></td>
+                        <td align="center" bgcolor="#FFFFFF"><strong><font color="#FF0000">$
+                            {{grandtotal}}</font></strong></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <!--Buttons-->
+                <table border="0" align="center" cellpadding="10" cellspacing="0">
+                    <tr>
+                        <td><input type="button" name="Continue" value="繼續購物" onclick="window.location='/index/'" class="btn btn-rounded btn-dark btn-xl"/></td>
+                        <td><input name="Submit" type="submit" id="Submit" value="更新購物車" class="btn btn-rounded btn-dark btn-xl"></td>
+                        <td><input name="Empty" type="button" id="Empty" onclick="window.location='/addtocart/empty/'" value="清空購物車" class="btn btn-rounded btn-dark btn-xl"/></td>
+                        <td><input name="Order" type="button" id="Order" onclick="window.location='/cartorder/'" value="我要結帳" class="btn btn-rounded btn-dark btn-xl"/></td>
+                    </tr>
+                </table>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
 {% endblock %}
