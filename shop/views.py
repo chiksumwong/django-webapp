@@ -82,7 +82,7 @@ def cartorder(request):  #按我要結帳鈕
 	customaddress1 = customaddress
 	customemail1 = customemail
 	message1 = message
-	return render(request, "cartorder.html", locals())
+	return render(request, "shop/shop-order.html", locals())
 
 def cartok(request):  #按確認購買鈕
 	global cartlist, message, customname, customphone, customaddress, customemail
@@ -106,15 +106,16 @@ def cartok(request):  #按確認購買鈕
 			total = int(unit[1]) * int(unit[2])
 			unitdetail = shop_model.DetailModel.objects.create(dorder=unitorder, pname=unit[0], unitprice=unit[1], quantity=unit[2], dtotal=total)
 		orderid = unitorder.id  #取得訂單id
+
 		mailfrom="你的gmail帳號"  #帳號
 		mailpw="你的gmail密碼"  #密碼
 		mailto=customemail  #收件者
 		mailsubject="織夢數位購物網-訂單通知";  #郵件標題
 		mailcontent = "感謝您的光臨，您已經成功的完成訂購程序。\n我們將儘快把您選購的商品郵寄給您！ 再次感謝您支持\n您的訂單編號為：" + str(orderid) + "，您可以使用這個編號回到網站中查詢訂單的詳細內容。\n織夢數位購物網" #郵件內容
-		send_simple_message(mailfrom, mailpw, mailto, mailsubject, mailcontent)  #寄信
+		# send_simple_message(mailfrom, mailpw, mailto, mailsubject, mailcontent)  #寄信
 		cartlist = []
 		request.session['cartlist'] = cartlist
-		return render(request, "cartok.html", locals())
+		return render(request, "shop/shop-ok.html", locals())
 
 def cartordercheck(request):  #查詢訂單
 	orderid = request.GET.get('orderid', '')  #取得輸入id
@@ -127,7 +128,7 @@ def cartordercheck(request):  #查詢訂單
 			notfound = 1
 		else:  #找到符合的資料
 			details = shop_model.DetailModel.objects.filter(dorder=order)
-	return render(request, "cartordercheck.html", locals())
+	return render(request, "shop/shop-check.html", locals())
 
 def send_simple_message(mailfrom, mailpw, mailto, mailsubject, mailcontent): #寄信
 	global message
