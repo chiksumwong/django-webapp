@@ -31,9 +31,9 @@
               <table width="90%" border="0" align="center" cellpadding="4" cellspacing="0">
                 <tr>
                   <th align="center"><strong>商品名稱</strong></th>
-                  <th width="80" align="center"><strong>單價</strong></th>
-                  <th width="80" align="center"><strong>數量</strong></th>
-                  <th width="100" align="center"><strong>金額</strong></th>
+                  <th width="80" align="center" style="text-align: right"><strong>單價</strong></th>
+                  <th width="80" align="center" style="text-align: right"><strong>數量</strong></th>
+                  <th width="100" align="center" style="text-align: right"><strong>金額</strong></th>
                 </tr>
 
                   <!--Items-->
@@ -63,8 +63,8 @@
               <p>客戶資訊</p>
               <table width="90%" border="0" align="center" cellpadding="4" cellspacing="0">
                 <tr>
-                  <th width="100" align="center">資訊</th>
-                  <th>內容</th>
+                  <th align="right" style="text-align: right">資訊</th>
+                  <th align="right" style="text-align: right">內容</th>
                 </tr>
                 <tr>
                   <td width="100" align="center" bgcolor="#FFFFFF"><strong>姓名</strong></td>
@@ -91,6 +91,8 @@
                 </tr>
               </table>
               <div style="clear:both"></div>
+
+                <!--Buttons-->
               <table border="0" align="center" cellpadding="10" cellspacing="0">
                 <tr>
                   <td><input type="button" name="button1" value="繼續購物" onclick="window.location='/index/'" class="btn btn-rounded btn-dark btn-xl"/></td>
@@ -98,6 +100,7 @@
                   <td><input type="submit" name="Submit" value="確認購買" class="btn btn-rounded btn-dark btn-xl"/></td>
                 </tr>
               </table>
+
               <span style="color:red">{{message1}}</span>
             </form>
 

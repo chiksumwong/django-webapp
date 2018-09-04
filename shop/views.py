@@ -64,7 +64,7 @@ def addtocart(request, ctype=None, productid=None):
 	elif ctype == 'empty':  #清空購物車
 		cartlist = []  #設購物車為空串列
 		request.session['cartlist'] = cartlist
-		return redirect('/index/')
+		return redirect('/products/')
 	elif ctype == 'remove':  #刪除購物車中商品
 		del cartlist[int(productid)]  #從購物車串列中移除商品
 		request.session['cartlist'] = cartlist
