@@ -22,7 +22,6 @@ from shop import views as shop_view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^contact/$', app_view.contact),
     url(r'^comingsoon/$', app_view.comingsoon),
 
     #Admin
@@ -58,4 +57,6 @@ urlpatterns = [
     url(r'^cartok/$', shop_view.cartok),
     url(r'^cartordercheck/$', shop_view.cartordercheck),
 
+    #Map(Contact Us Page)
+    url(r'^contact/$', app_view.contact),
 ]

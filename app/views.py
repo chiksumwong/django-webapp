@@ -1,13 +1,14 @@
 from django.shortcuts import render, redirect
-
 #Auth
 from django.contrib.auth import authenticate
 from django.contrib import auth
-
 #Model
 from news import models as news_model
-
+from app import models as app_model
+#Other
 import math
+from datetime import datetime
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 page1 = 1
@@ -20,9 +21,6 @@ def register(request):  #Home
 
 def comingsoon(request):
     return render(request, "system/coming-soon.html" ,locals())
-
-def contact(request):
-    return render(request, "system/contact.html" ,locals())
 
 def login(request):  #登入
 	messages = 'This is Message'  #初始時清除訊息
@@ -74,3 +72,7 @@ def dashboard(request, pageindex=None):  #管理頁面
 		newsunits = news_model.NewsUnit.objects.order_by('-id')[start:(start+pagesize)]
 	currentpage = page1
 	return render(request, "admin/dashboard.html", locals())
+
+def contact(request):
+    all = app_model.maplist.objects.all()  # 取得所有shop
+    return render(request, "system/contact.html" ,locals())

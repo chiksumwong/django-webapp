@@ -1,0 +1,70 @@
+{% extends 'app.html' %}
+{% load staticfiles %}
+
+{% block title %} <title>WEB APP</title> {% endblock %}
+
+{% block content %}
+        <!--page title-->
+        <div class="dzsparallaxer auto-init height-is-based-on-content "  data-options='{   direction: "reverse"}'>
+            <div class="divimage dzsparallaxer--target " style="width: 101%; height: 130%">
+                <img src="{% static "images/contact_us_banner.jpg" %}" style="width: 101%; height: 130%">
+            </div>
+
+            <div class="container pt100 pb70">
+                <div class="row pb50">
+                    <div class="col-md-8 ml-auto mr-auto wow bounceIn" data-wow-delay=".2s">
+                        <!--<h3 class="h1 text-center font500  pt500 text-black">Contact Us</h3>-->
+                    </div>
+                </div>
+            </div>
+        </div><!--parallax-->
+        <!--/.page-title-->
+
+        <div class="container pt90 pb50">
+            <div class="row">
+
+                <!--Left Side-->
+                <div class="col-md-6 mb40">
+                    <div class="media mb20">
+                        <i class="icon-round-40 mr-3 bg-light fa fa-home"></i>
+                        <p class="media-body pt5">
+                            1, Yuen Wo Road, <br> Sha Tin Town Hall
+                        </p>
+                    </div>
+                    <div class="media mb20">
+                        <i class="icon-round-40 float-left mr-3 bg-light fa fa-clock-o"></i>
+                        <p class="media-body pt5">
+                            Monday-Friday: 8am to 6pm<br>
+                            Saturday: 10am to 2pm<br>
+                            Sunday: Closed</p>
+                    </div>
+                    <div class="media mb20">
+                        <i class="icon-round-40 bg-light float-left mr-3 fa fa-envelope"></i>
+                        <p class="media-body pt5">
+                            <a href="#" class="btn btn-underline">webappsupport@gamil.com</a></p>
+                    </div>
+                    <div class="media mb20">
+                        <i class="icon-round-40 float-left mr-3 bg-light fa fa-phone"></i>
+                        <p class="media-body pt5">
+                            <a href="#" class="btn btn-underline">+852 12345678</a></p>
+                    </div>
+                </div>
+
+                <!--Right Side-->
+                <div class="col-md-6">
+
+                </div>
+
+
+            </div>
+        </div>
+{% endblock %}
+
+{% block jquery %}
+        <!--contact form-->
+        <!--smart-form script-->
+        <script src="{% static "contact-form/js/jquery.form.min.js" %}" type="text/javascript"></script>
+        <script src="{% static "contact-form/js/jquery.validate.min.js" %}" type="text/javascript"></script>
+        <script src="{% static "contact-form/js/additional-methods.min.js" %}" type="text/javascript"></script>
+        <script src="{% static "contact-form/js/smart-form.js" %}" type="text/javascript"></script>
+{% endblock %}
